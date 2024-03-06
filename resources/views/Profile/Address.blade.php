@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dashboard</title>
@@ -86,12 +86,12 @@
 
     .user_profile {
         width: 30%;
-        overflow-y: auto;
-        box-sizing: border-box;
+        overflow-y: hidden;
         border-right: 1px solid #ccc;
-    }
-    .user_profile2 {
-        width: 100%;
+        box-sizing: border-box;
+        margin-right: 0;
+        border: none;
+
     }
 
     .contents {
@@ -171,24 +171,13 @@
         transform: scale(1.1);
         /* Increase the scale on hover */
     }
-    .custom-btn-highlight {
-        background-color: #4d9584;
-        color: white;
-        text-decoration: none;
-        /* Remove default link underline */
-    }
 
-    .custom-btn-highlight:hover {
-        color: white;
-        background-color: #4d9584;
-    }
-
-    .custom-btn{
+    .custom-btn {
         border-color: #937952;
         color: #937952;
     }
 
-    .custom-btn:hover{
+    .custom-btn:hover {
         color: white;
         background-color: #4d9584;
     }
@@ -197,7 +186,7 @@
 
 <body>
     <!-- Navigation Bar -->
-    
+
     @include('Layouts.navbar')
 
     <!-- Header Section -->
@@ -207,105 +196,108 @@
     <br>
     <br>
     <div class="container">
-    
-    <table class="user_profile">
-            <tr>
-                <td >
-                    <a href="/my_account">
-                        <img src="images/Pre-Built/sysu 1.jpg" class="profile_img"
-                            style="float: left; margin-left: -120px; margin-top: -60px;">
-                    </a>
-                    <h2 style="margin-bottom: 20px; margin-top: -41px;">{{auth()->user()->name}}</h2>
-                    <a href="my_account/edit"style="text-decoration: none; color: rgb(0, 0, 0);">
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <hr style="margin: 0 auto; width: 100%; margin-bottom: -400px; margin-left: -90px; ">
-                </td>
-            </tr>
-            <tr>
-                <div >
-                    <td>
-                        <div class="user_header">
-                            <a href="/my_account"
-                                style="text-decoration: none; font-size: 30px; margin-bottom: -90px;">My
-                                Account</a>
-                        </div>
+        <div class="user_profile" style="margin-right: 60px;'">
+            <table>
+                <tr>
+                    <td style="margin-top: 90px;">
                         <br>
-                        <div class="user_details" style="margin-left: 40px;">
-                            <a href="/my_account" style="text-decoration: none; " class="myPurchase_header" >
-                                <p>Profile</p>
-                            </a>
-                            <a href="/address" style="text-decoration: none; " class="address">
-                                <p>Address</p>
-                            </a>
-                            <a href="/change_passwordV" style="text-decoration: none; color:rgb(0, 0, 0));"
-                                class="change_pass">
-                                <p>Change Password</p>
-                            </a>
-                        </div>
+                        <a href="/my_account" style="margin-top: -220px;"><img src="images/Pre-Built/sysu 1.jpg"
+                                class="profile_img"></a>
+                        <h2 style="margin-right: 5px; margin-bottom: -100px;">
+                            {{auth()->user()->name}}</h2>
+                        </a>
                     </td>
-                </div>
-            </tr>
-            <tr>
-                <td style="text-align: center;">
-                    <div class="myPurchase_header">
-                        <a href="/my_purchase" style="font-size: 30px; text-decoration: none; color: rgb(0, 0, 0);">My
-                            Purchase</a>
+                </tr>
+                <tr>
+                    <td>
+                        <hr style="margin: 0 auto; width: 100%;  margin-top: 78px;">
+                    </td>
+                </tr>
+                <td>
+                    <div class=" user_header">
+                        <a href="/my_account" style="text-decoration: none; font-size: 30px;">My Account</a>
+                    </div>
+                    <br>
+                    <div class="user_details">
+                        <a href="/my_account" style="text-decoration: none;" class="myPurchase_header">
+                            <p>Profile</p>
+                        </a>
+                        <a href="/address" style="text-decoration: none;" class="address">
+                            <p>Address</p>
+                        </a>
+                        <a href="/change_passwordV" style="text-decoration: none; color:rgb(0, 0, 0));"
+                            class="change_pass">
+                            <p>Change Password</p>
+                        </a>
                     </div>
                 </td>
-            </tr>
-        </table>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="myPurchase_header">
+                            <a href="/my_purchase"
+                                style="text-decoration: none; color: rgb(0, 0, 0); font-size: 30px;">My
+                                Purchase</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
         <!-- Table Section -->
         <div class="contents">
             <table class="table_2">
                 <tr>
                     <td>
-                        <div
-                            style="display: flex; align-items: center; justify-content: space-between;">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
                             <h4 style="margin: 0; font-weight: bold;">My Addresses</h4>
-                                <a href="/add_new_address"
-                                class="btn btn custom-btn">
-                                    + Add New Address
-                                </a>
+                            <a href="/add_new_address" class="btn btn custom-btn">
+                                + Add New Address
+                            </a>
                         </div>
                     </td>
                 </tr>
             </table>
 
-            @if(count($addresses)>=1)
-                @foreach ($addresses as $item)
+            @if(count($addresses) >= 1)
+            @foreach ($addresses as $item)
             <table class="table_2">
-                    <tr>
-                        <td class="d-flex justify-content-between"  style="padding: 0px; padding-left: 15px; margin-top:10px;">
-                            <h2>{{$item -> address}}</h2>
-                        </td>
-                    </tr>
-                    <tr >
-                        <td class="d-flex justify-content-between" style="padding: 0px; padding-left: 15px;">
-                            <p>{{$item -> region}}, {{$item -> city}}, {{$item -> postal_code}}</p>
-                            
-                        </td>
-                    </tr>
-                    <tr style="display: flex; align-items: center; justify-content: flex-end; ">
-                    <td>
-                    <a href="{{url('delete_address/'.$item -> id.'')}}" class="btn btn-outline-danger" onclick ="return confirm('Are you sure?')">Remove</a>
-                    </td><td >
-                    <a href="{{url('edit_address/'.$item -> id.'')}}"  style="margin-right: 2%"  class="btn btn-outline-secondary">Edit</a>
-                    </td>
-                    </tr>
-                @endforeach
-            @else
-            <table>
                 <tr>
-                    <td><p style="font-size:30px; margin-bottom: -15px">No Address Found</p></td>
-                    <tr><td>please add a new address</td></tr>
-                    
+                    <td class="d-flex justify-content-between"
+                        style="padding: 0px; padding-left: 15px; margin-top:10px;">
+                        <h2>{{$item->address}}</h2>
+                    </td>
                 </tr>
-            @endif
-            </table>
+                <tr>
+                    <td class="d-flex justify-content-between" style="padding: 0px; padding-left: 15px;">
+                        <p>{{$item->region}}, {{$item->city}}, {{$item->postal_code}}</p>
+
+                    </td>
+                </tr>
+                <tr style="display: flex; align-items: center; justify-content: flex-end; ">
+                    <td>
+                        <a href="{{url('delete_address/' . $item->id . '')}}" class="btn btn-outline-danger"
+                            onclick="return confirm('Are you sure?')">Remove</a>
+                    </td>
+                    <td>
+                        <a href="{{url('edit_address/' . $item->id . '')}}" style="margin-right: 2%"
+                            class="btn btn-outline-secondary">Edit</a>
+                    </td>
+                </tr>
+                @endforeach
+                @else
+                <table>
+                    <tr>
+                        <td>
+                            <p style="font-size:30px; margin-bottom: -15px">No Address Found</p>
+                        </td>
+                    <tr>
+                        <td>please add a new address</td>
+                    </tr>
+
+                    </tr>
+                    @endif
+                </table>
         </div>
     </div>
     <br>
@@ -315,16 +307,16 @@
 
     <!-- Bootstrap JS and Popper.js scripts -->
     <script>
-        function toggleBorderBottom(element) {
-            // Remove 'clicked' class from all td elements in the table
-            var tds = element.parentNode.getElementsByTagName('td');
-            for (var i = 0; i < tds.length; i++) {
-                tds[i].classList.remove('clicked');
-            }
-
-            // Add 'clicked' class to the clicked td element
-            element.classList.toggle('clicked');
+    function toggleBorderBottom(element) {
+        // Remove 'clicked' class from all td elements in the table
+        var tds = element.parentNode.getElementsByTagName('td');
+        for (var i = 0; i < tds.length; i++) {
+            tds[i].classList.remove('clicked');
         }
+
+        // Add 'clicked' class to the clicked td element
+        element.classList.toggle('clicked');
+    }
     </script>
 
     <!-- Bootstrap JS and Popper.js scripts -->
@@ -333,7 +325,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
+    </script>
 </body>
 
 </html>

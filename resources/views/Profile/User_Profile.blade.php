@@ -298,7 +298,7 @@
     <br>
 
     <!-- Footer Section -->
-@include('Layouts.footer3')
+    @include('Layouts.footer3')
 
 
 

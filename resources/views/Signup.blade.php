@@ -97,10 +97,17 @@
         padding: 10px;
     }
 
+    @media (max-width: 767px) {
+        .hide-on-small {
+            display: none;
+        }
+    }
+
     /* Media queries for responsiveness */
     @media (max-width: 768px) {
         .custom-container {
             margin-right: 0;
+            margin-top: -70px;
         }
 
         #signupForm {
@@ -137,7 +144,7 @@
                     <form id="signupForm" action="{{route('Signup.post')}}" method="POST"
                         style="border-radius: 50px; padding: 44px;">
                         @csrf
-                        <header class="py-5 text-center">
+                        <header class="py-4 text-center">
                             <h1>Sign Up</h1>
                         </header>
                         <div class="form-group password-container" style="margin-bottom: 30px;">
@@ -184,7 +191,8 @@
                     </form>
                 </div>
                 <!-- Image on the left side (as a clickable button) -->
-                <div class="col-lg-6 col-md-3 col-sm-9 position-fixed text-left" style="left: 0; top: -40px;">
+                <div class="col-lg-6 col-md-3 col-sm-9 position-fixed text-left hide-on-small"
+                    style="left: 0; top: -40px;">
                     <a href="/">
                         <img src="images/logo white4.png" alt="Left Image" style="width: 100%;">
                     </a>
@@ -194,7 +202,7 @@
     </section>
 
     <!-- Footer Section -->
-    <footer class="bg-black text-light text-center py-2 fixed-bottom"
+    <footer class="bg-black text-light text-center py-2 fixed-bottom hide-on-small"
         style="background-image: linear-gradient(to right, #937952, #4d9584);">
         <div class="row">
             <div class="col-md text-left ml-md-4" style="margin-top: 15px;">

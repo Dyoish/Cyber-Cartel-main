@@ -44,11 +44,12 @@
         display: block;
     }
 
+    main {
+        flex: 1;
+    }
+
     footer {
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        padding: 10px;
+        margin-top: auto;
     }
 
     .navbar-brand img {
@@ -62,7 +63,7 @@
     }
 
     .main-wrapper {
-        min-height: 65vh;
+        min-height: 55vh;
         background-color: #eeeeee;
         display: flex;
         align-items: center;
@@ -72,7 +73,7 @@
     .container {
         max-width: 1200px;
         padding: 0 1rem;
-        margin: 0 auto;
+        margin: auto;
     }
 
     .product-div {
@@ -233,7 +234,16 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
+    .alert {
+        margin-top: -90px;
+    }
+
     @media screen and (max-width: 992px) {
+
+        .main-wrapper {
+            margin-bottom: 10vh;
+        }
+
         .product-div {
             grid-template-columns: 100%;
         }
@@ -322,90 +332,55 @@
     @endif
 
     <div class="main-wrapper" style="margin-top: 120px; background-color: white;">
-    <div class="container" style="border: none; border-radius: 50px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        <div class="container" style=" border-radius: 50px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
             <div class="product-div">
                 <div class="product-div-left">
                     <div class="img-container">
-                        <img src="{{$product-> photo}}"/>
+                        <img src="{{$product->photo}}" />
                     </div>
                 </div>
                 <div class="product-div-right" style="margin-top: 100px;">
-                        @if(session()->has('success'))
-                        <div class ="alert alert-success">{{session('success')}}</div>
-                        @endif
-                    <span class="product-name">{{$product-> name}}</span>
-                    <span class="product-price">₱{{$product-> price}}</span>
+                    @if(session()->has('success'))
+                    <div class="alert alert-success">{{session('success')}}</div>
+                    @endif
+                    <span class="product-name">{{$product->name}}</span>
+                    <span class="product-price">₱{{$product->price}}</span>
                     <p class="product-description"></p>
-                    <form method ="POST">
-                    @csrf
-                    <div class="btn-groups">
-                            <button class="add-cart-btn" formaction="{{url('addcart',$product->id)}}">
-                                <i class="bx bxs-cart-add"></i>  add to cart
+                    <form method="POST">
+                        @csrf
+                        <div class="btn-groups">
+                            <button class="add-cart-btn" formaction="{{url('addcart', $product->id)}}">
+                                <i class="bx bxs-cart-add"></i> add to cart
                             </button>
-                            <button class="buy-now-btn" formaction="{{url('buynow',$product->id)}}">
-                                <i class="bx bxs-wallet"></i>  buy now
+                            <button class="buy-now-btn" formaction="{{url('buynow', $product->id)}}">
+                                <i class="bx bxs-wallet"></i> buy now
                             </button>
                     </form>
-                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Additional box for details -->
-            </div>
+        <!-- Additional box for details -->
+    </div>
     </div>
 
-    <div class="main-wrapper" style=" background-color: white;">
-    <div class="container" style="border: 1px solid black; border-radius: 50px;">
-        <div class="product-div-two" style="text-align: left;">
-            <div class="product-div-left">
-                <h4>General Specifications</h4>
-                <p class="product-description-one">
-                    {{$product->details}}
-                </p>
+    <div class="main-wrapper" style="background-color: white;">
+        <div class="container"
+            style="border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius: 50px; margin-top: 90px;">
+            <div class="product-div-two" style="text-align: left;">
+                <div class="product-div-left">
+                    <h4>General Specifications</h4>
+                    <p class="product-description-one" style="white-space:pre-wrap;">
+                        {{$product->details}}
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-
-    <div class="main-wrapper"
-        style="background-color: white; margin-top: -150px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-        <div class="container" style="border-radius: 50px; padding: -100px;">
-            <!-- ... (existing content) ... -->
-
-            <!-- Reviews Section -->
-            <div class=" reviews-section">
-                <h2>Product Reviews</h2>
-
-                <!-- Individual Review Comments -->
-                <div class="review-comment">
-                    <div class="user-info">
-                        <img src="images/meoww.jpg" alt="User Avatar" />
-                        <span>Boss R2x</span>
-                    </div>
-                    <p class="review-text">
-                        This product is amazing! I love the performance and speed.
-                        Definitely recommended.
-                    </p>
-                </div>
-
-                <div class="review-comment">
-                    <div class="user-info">
-                        <img src="images/meoww.jpg" alt="User Avatar" />
-                        <span>Boss H2x</span>
-                    </div>
-                    <p class="review-text">
-                        Excellent processor! It exceeded my expectations. Great value for
-                        the money.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </div>
 
     <!-- Footer Section -->
-@include('Layouts.footer2')
+    @include('Layouts.footer2')
 
     <script>
     const allHoverImages = document.querySelectorAll(".hover-container div img");

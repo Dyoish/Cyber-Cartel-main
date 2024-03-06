@@ -171,16 +171,18 @@
         transform: scale(1.1);
         /* Increase the scale on hover */
     }
-    .custom-btn{
+
+    .custom-btn {
         border-color: #937952;
         color: #937952;
     }
 
-    .custom-btn:hover{
+    .custom-btn:hover {
         color: white;
         background-color: #4d9584;
     }
-    .custom-btn:focus{
+
+    .custom-btn:focus {
         color: white;
         background-color: #4d9584;
     }
@@ -281,7 +283,7 @@
                     </div>
                     <tr class="user">
                         <td style="display: flex; align-items: center; justify-content: flex-start;">
-                            <p style="margin-left: 10px; font-weight: bold;" >Username:</p>
+                            <p style="margin-left: 10px; font-weight: bold;">Username:</p>
                             <input type="text" style="margin-bottom: 1.5%; margin-left:2%" name="name" id="name"
                                 value="{{$user->name}}" />
                         </td>
@@ -298,8 +300,7 @@
                     </tr>
                     <tr style="display: flex; align-items: center; justify-content: flex-end;">
                         <td>
-                            <button type="submit"
-                                class="btn custom-btn">Save</button>
+                            <button type="submit" class="btn custom-btn">Save</button>
                         </td>
                     </tr>
                 </form>

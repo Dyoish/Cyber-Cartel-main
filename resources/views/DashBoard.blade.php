@@ -48,7 +48,7 @@
     a {
         text-decoration: none;
         font-size: 18px;
-        color:inherit;
+        color: inherit;
     }
 
     main {
@@ -59,10 +59,13 @@
         margin-top: auto;
     }
 
+
+
     .slider-frame {
         overflow: hidden;
         max-width: 100%;
         margin-top: 20px;
+        weight: 100%;
     }
 
     .slide-images {
@@ -70,6 +73,7 @@
         flex-direction: row;
         transition: transform 0.5s ease-in-out;
         border: hidden;
+        weight: 100%;
     }
 
     .img-container {
@@ -82,7 +86,6 @@
 
     .img {
         border-bottom-left-radius: 30px;
-
     }
 
     #pics {
@@ -98,7 +101,7 @@
     .img-container img {
         width: 75vw;
         /* Make images responsive */
-        height: 500px;
+        height: 45vh;
         /* Set a fixed height for all images */
         object-fit: cover;
         /* Ensure images cover the container without stretching */
@@ -149,6 +152,7 @@
     .navbar-hidden {
         transform: translateY(-100%);
     }
+
     .custom-btn-highlight {
         background-color: #4d9584;
         color: white;
@@ -161,16 +165,17 @@
         background-color: #4d9584;
     }
 
-    .custom-btn{
+    .custom-btn {
         border-color: #937952;
         color: #937952;
     }
 
-    .custom-btn:hover{
+    .custom-btn:hover {
         color: white;
         background-color: #4d9584;
     }
-    .custom-btn:focus{
+
+    .custom-btn:focus {
         color: white;
         background-color: #4d9584;
     }
@@ -180,6 +185,7 @@
 <body>
     <!-- Navigation Bar -->
     @include('Layouts.navbar')
+
     <br>
 
 
@@ -237,7 +243,7 @@
                 </header>
             </div>
 
-            @foreach($Case->slice(0,6) as $item)
+            @foreach($Case->slice(0, 6) as $item)
             <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
                 <a href="{{url('product_demo/' . $item->id . '')}}" style="text-decoration: none; color: inherit;">
                     <div class="card" style="border-radius: 30px 30px 30px 30px;">
@@ -274,7 +280,7 @@
                 </header>
             </div>
 
-            @foreach($CPU->slice(0,6) as $cpuitem)
+            @foreach($CPU->slice(0, 6) as $cpuitem)
             <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
                 <a href="{{url('product_demo/' . $cpuitem->id . '')}}" style="text-decoration: none; color: inherit;">
                     <div class="card" style="border-top-left-radius: 30px; border-top-right-radius: 30px;">
@@ -311,7 +317,7 @@
                 </header>
             </div>
 
-            @foreach($Motherboard->slice(0,6) as $mbitem)
+            @foreach($Motherboard->slice(0, 6) as $mbitem)
             <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
                 <a href="{{url('product_demo/' . $mbitem->id . '')}}" style="text-decoration: none; color: inherit;">
                     <div class="card" style="border-top-left-radius: 30px; border-top-right-radius: 30px;">
@@ -348,7 +354,7 @@
                 </header>
             </div>
 
-            @foreach($GPU->slice(0,6) as $gpuitem)
+            @foreach($GPU->slice(0, 6) as $gpuitem)
             <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
                 <a href="{{url('product_demo/' . $gpuitem->id . '')}}" style="text-decoration: none; color: inherit;">
                     <div class="card" style="border-top-left-radius: 30px; border-top-right-radius: 30px;">
@@ -384,7 +390,7 @@
                 </header>
             </div>
 
-            @foreach($RAM->slice(0,6) as $ramitem)
+            @foreach($RAM->slice(0, 6) as $ramitem)
             <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
                 <a href="{{url('product_demo/' . $ramitem->id . '')}}" style="text-decoration: none; color: inherit;">
                     <div class="card" style="border-top-left-radius: 30px; border-top-right-radius: 30px;">
@@ -422,7 +428,7 @@
                 </header>
             </div>
 
-            @foreach($PSU->slice(0,6) as $psuitem)
+            @foreach($PSU->slice(0, 6) as $psuitem)
             <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
                 <a href="{{url('product_demo/' . $psuitem->id . '')}}" style="text-decoration: none; color: inherit;">
                     <div class="card" style="border-top-left-radius: 30px; border-top-right-radius: 30px;">
@@ -459,7 +465,7 @@
                 </header>
             </div>
 
-            @foreach($Storage->slice(0,6) as $storageitem)
+            @foreach($Storage->slice(0, 6) as $storageitem)
             <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
                 <a href="{{url('product_demo/' . $storageitem->id . '')}}"
                     style="text-decoration: none; color: inherit;">
@@ -482,7 +488,7 @@
 
 
     <!-- Footer Section -->
-@include('Layouts.footer2')
+    @include('Layouts.footer2')
 
 
     <script>

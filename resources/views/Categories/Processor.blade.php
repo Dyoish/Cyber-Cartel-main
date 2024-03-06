@@ -40,10 +40,7 @@
     }
 
     footer {
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        padding: 10px;
+        margin-top: auto;
     }
 
     .slider-frame {
@@ -169,7 +166,7 @@
 
 
     <!-- Footer Section -->
-    @include('Layouts.footer')
+    @include('Layouts.footer2')
 
     <!-- Bootstrap JS and Popper.js scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

@@ -76,7 +76,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            right: 400px;
+
         }
     }
 
@@ -85,6 +85,14 @@
             display: none;
         }
     }
+
+    @media (max-width: 767px) {
+        .form-control {
+            width: 250px;
+            margin-left: -60px;
+        }
+    }
+
 
     /* Add more padding for the login form */
     /*ajust para sa login form*/
@@ -111,8 +119,6 @@
         transition: transform 0.3s ease-in-out;
         /* Adjust the transition properties as needed */
     }
-
-
 
     footer {
         background-color: black;
